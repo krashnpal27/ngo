@@ -10,7 +10,7 @@
                   <ol class="breadcrumb">
                       <li class="breadcrumb-item"><a href="{{route('dashboard')}}" class="breadcrumb-link">Dashboard</a></li>
                       
-                      <li class="breadcrumb-item active" aria-current="page">Manage Expenses</li>
+                      <li class="breadcrumb-item active" aria-current="page">Manage Donation</li>
                   </ol>
                 </div>
                 <div class="ml-auto mt-2 ">

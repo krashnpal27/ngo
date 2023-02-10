@@ -8,7 +8,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('dashboard')}}" class="breadcrumb-link">Dashboard</a></li>
                     
-                    <li class="breadcrumb-item active" aria-current="page">Manage Donation List</li>
+                    <li class="breadcrumb-item active" aria-current="page">Manage Expenses</li>
                 </ol>
             </nav>
         </div>

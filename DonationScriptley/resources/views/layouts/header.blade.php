@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>Natureal Admin</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -30,6 +30,16 @@
   <link rel="stylesheet" href="{{asset('custom/alertify/alertify.min.css')}}" />
   <link rel="stylesheet" href="{{asset('custom/alertify/default.min.css')}}" />
   <!-- ck editor -->
+  <style>
+    .fa-trash{
+      color: #9a5f3e;
+      font-size:25px;
+    }
+    .fa-edit{
+      color:#166435;
+      font-size:25px;
+    }
+  </style>
   
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">

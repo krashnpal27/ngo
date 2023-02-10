@@ -7,6 +7,9 @@ use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\ExpenseCategoryController;
 use App\Http\Controllers\DonationCategoryController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PDFController;
+use App\Http\Controllers\RazorpayPaymentController;
+// use Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,24 +21,32 @@ use App\Http\Controllers\LoginController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// mail sending
+// Route::get('send-mail', function () {
+   
+//     $details = [
+//         'title' => 'Mail from ItSolutionStuff.com',
+//         'body' => 'This is for testing email using smtp'
+//     ];
+   
+//     \Mail::to('k.p.shaktawat9@gmail.com')->send(new \App\Mail\SendMailphp($details));
+   
+//     dd("Email is Sent.");
+// });
+// mail sending
+Route::get('/forgot',function(){
+    return view('reset');
+})->name('forgot');
+Route::post('/reset_pass',[LoginController::class,'resetpassword'])->name('reset_pass');
+// Route::post('generate-pdf', [PDFController::class, 'generatePDF']);
+Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
 
-
-Route::get('/login', function () {
-    return view('layouts.login');
+Route::group(['middleware' => ['guest']], function(){
+    Route::get('/login', function () {
+        return view('layouts.login');
+    });
+    Route::post('/login',[LoginController::class,'checklogin'])->name('login');
 });
-// Route::get('/expense',function(){
-//     return view('expense');
-// })->name('expense');
-// Route::get('/causes',function(){
-//     return view('causes');
-// })->name('causes');
-// Route::get('/donation',function(){
-//     return view('donation');
-// })->name('donation');
-// Route::get('/add_donation',function(){
-//     return view('add_donation');
-// })->name('add_donation');
-Route::post('/login',[LoginController::class,'checklogin'])->name('login');
 Route::group(['middleware' => ['auth']], function()
 {   
 
@@ -43,6 +54,8 @@ Route::group(['middleware' => ['auth']], function()
         return view('dashboard');
     })->name('dashboard'); 
     Route::get('/logout',[LoginController::class,'logout'])->name('logout');
+    Route::get('/profile',[LoginController::class,'profile'])->name('profile');
+    Route::post('/update_profile',[LoginController::class,'update_profile'])->name('update_profile');
     Route::get('/donation',[DonationController::class,'index'])->name('donation');
     Route::post('/save_donation',[DonationController::class,'store'])->name('save_donation');
     Route::post('/update_donation',[DonationController::class,'update'])->name('update_donation');
@@ -74,3 +87,6 @@ Route::group(['middleware' => ['auth']], function()
     Route::post('/update_donation_cat',[DonationCategoryController::class,'update'])->name('update_donation_cat');
     Route::post('/delete_donation_cat',[DonationCategoryController::class,'destroy'])->name('delete_donation_cat');
 });
+
+Route::get('razorpay-payment', [RazorpayPaymentController::class, 'index']);
+Route::post('razorpay-payment', [RazorpayPaymentController::class, 'store'])->name('razorpay.payment.store');

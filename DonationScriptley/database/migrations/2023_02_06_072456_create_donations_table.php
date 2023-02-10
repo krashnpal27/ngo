@@ -21,7 +21,7 @@ class CreateDonationsTable extends Migration
             $table->string('city');
             $table->string('phone');
             $table->integer('category');
-            $table->string('cause');
+            $table->integer('cause');
             $table->string('payment_by');
             $table->string('cheque_no')->nullable();
             $table->string('amount');

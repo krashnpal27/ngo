@@ -1,0 +1,134 @@
+
+	body{
+  font-family: sans-serif;
+	}
+.main {
+    width: 72%;
+    height: 100%;
+    margin: 0 auto;
+    margin-top: 37px;
+    box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+}
+.logo {
+    width: 10%;
+    height: 12%;
+}
+.header {
+    display: flex;
+    padding: 10px 33px;
+    border-bottom: 2px solid black;
+}
+.heding{
+	width: 100%;
+}
+.heding h1 {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin: 11px;
+}
+.second-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 33px;
+    border-bottom: 2px solid black;
+}
+.third-section {
+    text-align: center;
+    border-bottom: 2px solid black;
+}
+.form {
+    padding: 10px 63px;
+    font-size: 18px;
+    border-bottom: 2px solid black;
+}
+.form input {
+    border: none;
+    border-bottom: 1px solid black;
+}
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 11px 0px;
+}
+.Receipt_No {
+    width: 60%;
+}
+.Date {
+    width: 40%;
+}
+.Receipt_No input {
+    width: 53%;
+}
+.Date input {
+    width: 75%;
+}
+.amount_rs{
+width: 65%;
+}
+.amount_words{
+width: 35%;
+}
+.amount_rs input {
+    width: 58%;
+}
+.amount_words input {
+    width: 87%;
+}
+.words input {
+	width: 90%;
+}
+.form-row-third{
+	padding: 15px 0px;
+}
+.name{
+	width: 100%;
+}
+.name input {
+    width: 62%;
+}
+.payment-method p{
+	text-align: right;
+}
+.Address {
+    width: 54%;
+}
+.Address input{
+	width: 70%;
+}
+input.address2 {
+    width: 82%;
+    padding: 10px;
+}
+.mob-no {
+    padding: 15px 0px;
+}
+.footer{
+	text-align: center;
+	padding: 1px;
+}
+.payment-detail {
+    width: 40%;
+}
+.Details{
+	 padding: 10px 0px;
+}
+.Details input {
+    width: 80%;
+}
+.PAN{
+	padding: 10px 0px;
+}
+.PAN input{
+	 width: 86%;
+}
+.Email_ID{
+	padding: 10px 0px;
+}
+.Email_ID input{
+	 width: 77%;
+}
+

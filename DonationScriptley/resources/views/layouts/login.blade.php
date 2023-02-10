@@ -1,137 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="csrf-token" content="{{ csrf_token() }}">
-  <title>AdminLTE 3 | Dashboard</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins&display=swap');
 
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="{{asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
-  <!-- iCheck -->
-  <link rel="stylesheet" href="{{asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
-  <!-- JQVMap -->
-  <!-- <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css"> -->
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{asset('dist/css/adminlte.css')}}">
-  <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="{{asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="{{asset('plugins/daterangepicker/daterangepicker.css')}}">
-  <!-- summernote -->
-  <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
-  <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.css"> -->
-  <link rel="stylesheet" href="{{asset('custom/alertify/alertify.min.css')}}" />
-  <link rel="stylesheet" href="{{asset('custom/alertify/default.min.css')}}" />
-  
+      * {
+          padding: 0;
+          margin: 0;
+          box-sizing: border-box
+      }
+
+      body {
+          background-color: #eee;
+          height: 100vh;
+          font-family: 'Poppins', sans-serif;
+          background: linear-gradient(to top, #fff 10%, rgba(93, 42, 141, 0.4) 90%) no-repeat
+      }
+
+      .wrapper {
+          max-width: 500px;
+          border-radius: 10px;
+          margin: 50px auto;
+          padding: 30px 40px;
+          box-shadow: 20px 20px 80px rgb(206, 206, 206)
+      }
+
+      .h2 {
+          font-family: 'Kaushan Script', cursive;
+          font-size: 3.5rem;
+          font-weight: bold;
+          color: #400485;
+          font-style: italic
+      }
+
+      .h4 {
+          font-family: 'Poppins', sans-serif
+      }
+
+      .input-field {
+          border-radius: 5px;
+          padding: 5px;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          border: 1px solid #400485;
+          color: #400485
+      }
+
+      .input-field:hover {
+          color: #7b4ca0;
+          border: 1px solid #7b4ca0
+      }
+
+      input {
+          border: none;
+          outline: none;
+          box-shadow: none;
+          width: 100%;
+          padding: 0px 2px;
+          font-family: 'Poppins', sans-serif
+      }
+
+      .fa-eye-slash.btn {
+          border: none;
+          outline: none;
+          box-shadow: none
+      }
+
+      a {
+          text-decoration: none;
+          color: #400485;
+          font-weight: 700
+      }
+
+      a:hover {
+          text-decoration: none;
+          color: #7b4ca0
+      }
+
+      .option {
+          position: relative;
+          padding-left: 30px;
+          cursor: pointer
+      }
+
+      .option label.text-muted {
+          display: block;
+          cursor: pointer
+      }
+
+      .option input {
+          display: none
+      }
+
+      .checkmark {
+          position: absolute;
+          top: 3px;
+          left: 0;
+          height: 20px;
+          width: 20px;
+          background-color: #fff;
+          border: 1px solid #ddd;
+          border-radius: 50%;
+          cursor: pointer
+      }
+
+      .option input:checked~.checkmark:after {
+          display: block
+      }
+
+      .option .checkmark:after {
+          content: "";
+          width: 13px;
+          height: 13px;
+          display: block;
+          background: #400485;
+          position: absolute;
+          top: 48%;
+          left: 53%;
+          border-radius: 50%;
+          transform: translate(-50%, -50%) scale(0);
+          transition: 300ms ease-in-out 0s
+      }
+
+      .option input[type="radio"]:checked~.checkmark {
+          background: #fff;
+          transition: 300ms ease-in-out 0s;
+          border: 1px solid #400485
+      }
+
+      .option input[type="radio"]:checked~.checkmark:after {
+          transform: translate(-50%, -50%) scale(1)
+      }
+
+      .btn.btn-block {
+          border-radius: 20px;
+          /* background-color: #400485; */
+          background-color: #126132;
+          color: #fff
+      }
+
+      .btn.btn-block:hover {
+          background-color: #9a5f3e;
+          color: #fff
+      }
+
+      @media(max-width: 575px) {
+          .wrapper {
+              margin: 10px
+          }
+      }
+
+      @media(max-width:424px){
+      .wrapper {
+        padding: 30px 10px;
+        margin: 5px
+    }
+
+    .option {
+        position: relative;
+        padding-left: 22px
+    }
+
+    .option label.text-muted {
+        font-size: 0.95rem
+    }
+
+    .checkmark {
+        position: absolute;
+        top: 2px
+    }
+
+    .option .checkmark:after {
+        top: 50%
+    }
+
+    #forgot {
+        font-size: 0.95rem
+    }
+}
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
-    <div class="container fluid">
-        <div class="row ">
-            <div class="col-xl-6 justify-content-center align-items-center mx-auto text-center bg-dark">
-                <div class="card">
-                    <div id="login">
-                        <h3 class="text-center text-white pt-5">Login form</h3>
-                        <div class="container">
-                            <div id="login-row" class="row justify-content-center align-items-center">
-                                <div id="login-column" class="col-md-6">
-                                    <div id="login-box" class="col-md-12">
-                                    @if ($errors->any())
-                                        <div class="alert alert-danger">
-                                            <ul>
-                                                @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}</li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    @endif
-                                        <form id="login-form" class="form" action="{{route('login')}}" method="post">
-                                            @csrf
-                                            <h3 class="text-center text-info">Login</h3>
-                                            <div class="form-group">
-                                                <label for="email" class="text-info">Email:</label><br>
-                                                <input type="email" name="email" id="email" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="password" class="text-info">Password:</label><br>
-                                                <input type="password" name="password" id="password" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
-                                                <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
-                                            </div>
-                                            <!-- <div id="register-link" class="text-right">
-                                                <a href="#" class="text-info">Register here</a>
-                                            </div> -->
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<body>
+    <div class="wrapper bg-white">
+        <div class="h2 text-center">
+            <img src="{{asset('/custom/img/logo.png')}}" alt="" srcset="">
         </div>
+        <div class="h4 text-muted text-center pt-2">Enter your login details</div>
+        <form class="form pt-3" id="login-form" action="{{route('login')}}" method="post">
+            @csrf
+            <div class="form-group">
+                <label for="email" class="text-success">Email:</label><br>
+                <input type="email" style="border-color:#b2866d" name="email" id="email" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="password" class="text-success">Password:</label><br>
+                <input type="password" style="border-color:#b2866d" name="password" id="password" class="form-control">
+            </div>
+            <div class="d-flex align-items-start">
+                <!-- <div class="remember"> <label class="option text-muted"> Remember me <input type="radio" name="radio"> <span class="checkmark"></span> </label> </div> -->
+                <!-- <div class="ml-auto"> <a href="#" id="forgot">Forgot Password?</a> </div> -->
+            </div> <button class="btn btn-block text-center my-3">Log in</button>
+            <!-- <div class="text-center pt-3 text-muted">Not a member? <a href="#">Sign up</a></div> -->
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+        </form>
     </div>
-  <!-- /.control-sidebar -->
-</div>
-<!-- ./wrapper -->
-
-<!-- jQuery -->
-<script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="{{asset('plugins/jquery-ui/jquery-ui.min.js')}}"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
-<!-- Bootstrap 4 -->
-<script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<!-- ChartJS -->
-<script src="{{asset('plugins/chart.js/Chart.min.js')}}"></script>
-<!-- Sparkline -->
-<script src="plugins/sparklines/sparkline.js"></script>
-<!-- JQVMap -->
-<script src="{{asset('plugins/jqvmap/jquery.vmap.min.js')}}"></script>
-<script src="{{asset('plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
-<!-- jQuery Knob Chart -->
-<script src="{{asset('plugins/jquery-knob/jquery.knob.min.js')}}"></script>
-<!-- daterangepicker -->
-<script src="{{asset('plugins/moment/moment.min.js')}}"></script>
-<script src="{{asset('plugins/daterangepicker/daterangepicker.js')}}"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="{{asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
-<!-- Summernote -->
-<script src="{{asset('plugins/summernote/summernote-bs4.min.js')}}"></script>
-<!-- overlayScrollbars -->
-<script src="{{asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
-<!-- AdminLTE App -->
-<script src="{{asset('dist/js/adminlte.js')}}"></script>
-<!-- AdminLTE for demo purposes -->
-<!-- <script src="dist/js/demo.js"></script> -->
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{asset('dist/js/pages/dashboard.js')}}"></script>
-<!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.css"> -->
-  
-
-
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.js"></script> -->
-<!-- <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script> -->
-<!-- <script type="text/javascript" src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script> -->
-<!-- <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"> </script> -->
-<!-- <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"> </script>
-<link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css"/> -->
-<script src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js" type="text/javascript"></script>  
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" /> 
-<script src="{{asset('custom/alertify/alertify.min.js')}}"></script>
-<script src="{{asset('custom/custom.js')}}"></script>
 </body>
 </html>

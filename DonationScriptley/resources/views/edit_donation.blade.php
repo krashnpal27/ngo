@@ -71,8 +71,9 @@
                                             <label for="cause">Donation Cause</label>
                                             <select id="cause" name="cause" class="form-control">
                                                 <option>Select Donation Cause</option>
-                                                <option @if ($data->cause=='Food')selected @endif>Food</option>
-                                                <option @if ($data->cause=='Education')selected @endif>Education</option>
+                                                @foreach($cause as $cat)
+                                                    <option value="{{$cat->id}}" @if ($data->cause==$cat->id)selected @endif>{{$cat->title}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                         <div class="form-group col-md-6">

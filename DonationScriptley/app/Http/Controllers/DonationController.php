@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Donation;
 use App\Models\DonationCategory;
+use App\Models\Cause;
 use Illuminate\Http\Request;
 use App\Repositories\UserRepository;
 use DB;
@@ -26,13 +27,21 @@ class DonationController extends Controller
     public function index()
     {
         
-        // $data = $this->Donation->all();
-        $data = DB::table('Donations')
-                    ->select('*',DB::raw('Donations.id as id, donation_categories.id as cid,donation_categories.title as cname,donation_categories.status as cstatus '))
-                    ->join('donation_categories', 'donation_categories.id', '=', 'Donations.category')
+        $data =Donation::count();
+        if($data > 0){
+            $data = DB::table('donations')
+                    ->select('*',DB::raw('donations.id as id, donation_categories.id as cid,donation_categories.title as cname,donation_categories.status as cstatus, causes.id as csid, causes.title as cstitle '))
+                    ->join('donation_categories', 'donation_categories.id', '=', 'donations.category')
+                    ->join('causes', 'causes.id', '=', 'donations.cause')
                     // ->where('users.name', 'like', '%' . $request->name . '%')
                     ->get();
-        return view('donation',['data'=>$data]);
+            return view('donation',['data'=>$data]);
+        }else{
+            $data = Donation::all();
+            return view('donation',['data'=>$data]);
+        }
+        
+                  
 
     }
 
@@ -45,7 +54,8 @@ class DonationController extends Controller
     {
         //
         $category = DonationCategory::where('status','active')->get();
-        return view('add_donation',['category'=>$category]);
+        $cause = Cause::where('status','active')->get();
+        return view('add_donation',['category'=>$category,'cause'=> $cause]);
     }
 
     /**
@@ -94,8 +104,9 @@ class DonationController extends Controller
         //
         $data = $this->Donation->show($id);
         $category = DonationCategory::where('status','active')->get();
+        $cause = Cause::where('status','active')->get();
 
-        return view('edit_donation',['data'=>$data,'category'=>$category]);
+        return view('edit_donation',['data'=>$data,'category'=>$category,'cause'=>$cause]);
     }
 
     /**

@@ -46,7 +46,6 @@
                       <td>{{$row->created_at}}</td>
                       <td>
                             <a class="delete_cause" data-url="{{route('delete_cause')}}"  data-id="{{$row->id}}" data-img="{{$row->image}}" data-toggle="tooltip" data-placement="top" title="Delete Donation"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                            <span class="viewdonation" data_id="{{$row->id}}" data_value="view" data_title="View Donation" data-toggle="tooltip" data-placement="top" title="View Donation"><i class="fa fa-eye" aria-hidden="true"></i></span>
                             <a class="viewcause" href="{{URL('edit_cause/'.$row->id)}}" data_id="{{$row->id}}" data_value="edit" data_title="Edit Donation" data-toggle="tooltip" data-placement="top" title="Edit Donation"><i class="fa fa-edit" aria-hidden="true"></i></a>
                       </td>
                     </tr>

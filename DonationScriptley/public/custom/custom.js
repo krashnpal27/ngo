@@ -71,7 +71,7 @@ $(document).ready( function () {
             {
                 alertify.success(data.message);// show response from the php script.
                 if(data.response == true){
-                    window.location = url+"/cause";
+                    window.location = url+"/causes";
                 }
             }
         });
@@ -304,7 +304,43 @@ $(document).ready( function () {
             {
                 alertify.success(data.message);// show response from the php script.
                 if(data.response == true){
-                    window.location = url+"/cause";
+                    window.location = url+"/causes";
+                }
+            }
+        });
+        
+    });
+    $("#profile_edit_form").submit(function(e) {
+
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+        
+        var form = $(this);
+        var actionUrl = form.attr('action');
+        // Get the selected file
+      var files = $('#image')[0].files;
+      console.log(files);
+
+      $.ajaxSetup({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+      });        
+        var fd = new FormData($("#profile_edit_form")[0]);
+
+         // Append data 
+         fd.append('file',files[0]);
+        console.log(fd);
+        $.ajax({
+            type: "POST",
+            url: actionUrl,
+            data: fd, // serializes the form's elements.
+            processData: false,
+            contentType: false,
+            success: function(data)
+            {
+                alertify.success(data.message);// show response from the php script.
+                if(data.response == true){
+                    window.location = url+"/";
                 }
             }
         });

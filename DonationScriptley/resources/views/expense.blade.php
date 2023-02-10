@@ -49,7 +49,6 @@
                       <td>{{$row->date}}</td>
                       <td>
                         <a class="delete_expense" data-url="{{route('delete_expense')}}" data-id="{{$row->id}}" data-img="{{$row->image}}" data-id="{{$row->id}}" data-toggle="tooltip" data-placement="top" title="Delete Expense"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                        <span class="viewdonation" data_id="{{$row->id}}" data_value="view" data_title="View Donation" data-toggle="tooltip" data-placement="top" title="View Donation"><i class="fa fa-eye" aria-hidden="true"></i></span>
                         <a class="viewexpense" href="{{URL('edit_expense/'.$row->id)}}" data_id="{{$row->id}}" data_value="edit" data_title="Edit Donation" data-toggle="tooltip" data-placement="top" title="Edit Donation"><i class="fa fa-edit" aria-hidden="true"></i></a>
                       </td>
                     </tr>

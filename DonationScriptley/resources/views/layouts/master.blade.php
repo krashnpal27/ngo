@@ -2,6 +2,7 @@
 @php 
   $color1 = "#166435";
   $color2 = "#b2866d";
+  $color2 = "#9a5f3e";
 @endphp
 <div class="wrapper">
 
@@ -11,16 +12,18 @@
   </div>
     <!-- top nav -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{{route('dashboard')}}">
-          <img src="{{asset('/custom/img/logo.png')}}" alt="" srcset="" width="50" height="50">
+        <a class="navbar-brand pl-3" href="{{route('dashboard')}}">
+          <img src="{{asset('/custom/img/logo.png')}}" alt="" srcset="" width="70" height="70">
         </a>
         <div class="justify-content-end navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown link
+                       <span style="color: {{$color2}}; font-size:20px"> Profile </span> <img src="{{asset(Auth::user()->image)}}" width="50" height="50" style="border: 3px solid {{$color1}}" class="rounded-circle">
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href="{{route('profile')}}">Profile</a>
+                      <a class="dropdown-item" href="{{route('forgot')}}">Reset Password</a>
                       <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
                     </div>
                 </li>
@@ -54,7 +57,7 @@
                     <a class="nav-link" href="{{route('expense_cat')}}">Expense Category</a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn" href="{{route('add_donation')}}" style="background-color:{{$color2}}">Add Donation</a>
+                    <a class="btn text-white" href="{{route('add_donation')}}" style="background-color:{{$color2}}">Add Donation</a>
                 </li>
             </ul>
         </div>
