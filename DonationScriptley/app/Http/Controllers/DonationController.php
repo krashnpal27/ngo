@@ -8,6 +8,8 @@ use App\Models\Cause;
 use Illuminate\Http\Request;
 use App\Repositories\UserRepository;
 use DB;
+use Illuminate\Support\Str;
+use PDF;
 
 
 class DonationController extends Controller
@@ -67,14 +69,17 @@ class DonationController extends Controller
     public function store(Request $request)
     {
         //
-        // $request->validate(['fname' => 'required']);
+        $request->validate(['fname' => 'required']);
         $data = $request->except([
             '_token',
             'user_id',
             'payment',
           ]);
+        $receipt = 'NTR_'.str::random(18);
+        $data['receipt_no']= $receipt;
+       
         if($this->Donation->create($data)){
-            return response()->json(['response'=>true,'message'=>'Donation Saved successfully']);
+            return response()->json(['response'=>true,'message'=>'Donation Saved successfully','receipt_no'=>$receipt]);
               
           }else{
             return response()->json(['response'=>false,'message'=>'Something went wrong']);

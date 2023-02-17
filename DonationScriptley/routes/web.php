@@ -22,24 +22,24 @@ use App\Http\Controllers\RazorpayPaymentController;
 |
 */
 // mail sending
-// Route::get('send-mail', function () {
+Route::get('send-mail', function () {
    
-//     $details = [
-//         'title' => 'Mail from ItSolutionStuff.com',
-//         'body' => 'This is for testing email using smtp'
-//     ];
+    $details = [
+        'title' => 'Mail from ItSolutionStuff.com',
+        'body' => 'This is for testing email using smtp'
+    ];
    
-//     \Mail::to('k.p.shaktawat9@gmail.com')->send(new \App\Mail\SendMailphp($details));
+    \Mail::to('k.p.shaktawat9@gmail.com')->send(new \App\Mail\SendMailphp($details));
    
-//     dd("Email is Sent.");
-// });
+    dd("Email is Sent.");
+});
 // mail sending
 Route::get('/forgot',function(){
     return view('reset');
 })->name('forgot');
 Route::post('/reset_pass',[LoginController::class,'resetpassword'])->name('reset_pass');
 // Route::post('generate-pdf', [PDFController::class, 'generatePDF']);
-Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
+// Route::get('generate-pdf/{receipt}', [PDFController::class, 'generate2'])->name('pdf_view');
 
 Route::group(['middleware' => ['guest']], function(){
     Route::get('/login', function () {
@@ -54,6 +54,7 @@ Route::group(['middleware' => ['auth']], function()
         return view('dashboard');
     })->name('dashboard'); 
     Route::get('/logout',[LoginController::class,'logout'])->name('logout');
+    Route::get('/pdf_view/{id}',[PDFController::class, 'generate2'])->name('pdf_view');
     Route::get('/profile',[LoginController::class,'profile'])->name('profile');
     Route::post('/update_profile',[LoginController::class,'update_profile'])->name('update_profile');
     Route::get('/donation',[DonationController::class,'index'])->name('donation');

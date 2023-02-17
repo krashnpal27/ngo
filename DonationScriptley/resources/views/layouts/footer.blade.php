@@ -64,6 +64,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" /> 
 <script src="{{asset('custom/alertify/alertify.min.js')}}"></script>
 <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
   $(document).ready( function () {
     $('#mytable').DataTable(

@@ -81,9 +81,19 @@
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="amount">Amount</label>
-                                            <input name="amount" type="number" class="form-control" id="amount" placeholder="Amount">
+                                            <input name="amount" type="number" class="form-control amount_pay" id="amount" placeholder="Amount">
                                         </div>
-                                        <div class="form-group col-md-6 d-flex align-items-center">
+                                        <!-- <div class="form-group col-md-6  align-items-center d-none" id="pay_options">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="pay_type" id="online" data-url="{{ route('razorpay.payment.store') }}"/>
+                                                <label class="form-check-label" for="cash"> Online </label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="pay_type" id="offline"/>
+                                                <label class="form-check-label" for="cheque"> Offline </label>
+                                            </div>
+                                        </div> -->
+                                        <div class="form-group col-md-6  align-items-center" id="ofline_div">
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="payment" id="cash"/>
                                                 <label class="form-check-label" for="cash"> Cash </label>
@@ -93,10 +103,13 @@
                                                 <label class="form-check-label" for="cheque"> Cheque </label>
                                             </div>
                                         </div>
-                                        <div class="form-group col-md-6">
+                                        <div class="form-group col-md-6 d-none" id="cheque_det">
                                             <label for="cheque_no">Cheque No.</label>
                                             <input name="cheque_no" type="number" class="form-control" id="cheque_no" placeholder="Cheque No">
                                         </div>
+                                        <!-- <div class="form-group col-md-6 d-none" id="online_div">
+                                            <button class="btn btn-success">pay</button>
+                                        </div> -->
                                         
                                     </div>
                                 </div>
@@ -108,6 +121,8 @@
                             
                             <button type="close" id="close" class="btn" style="background-color:#c45301">Cancel</button>
                             <button type="submit" class="btn btn-success">Save</button>
+                            <a type="button" class="btn btn-success d-none" id="receipt" href="">Reciept</a>
+                            <a type="button" class="btn btn-success d-none" id="d_receipt" href="">Download Reciept</a>
 
                         </div>
                     </div>

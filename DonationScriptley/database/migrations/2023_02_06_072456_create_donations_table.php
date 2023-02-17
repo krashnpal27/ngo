@@ -20,6 +20,7 @@ class CreateDonationsTable extends Migration
             $table->string('email');
             $table->string('city');
             $table->string('phone');
+            $table->string('receipt_no');
             $table->integer('category');
             $table->integer('cause');
             $table->string('payment_by');

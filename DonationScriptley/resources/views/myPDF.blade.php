@@ -142,13 +142,17 @@ input.address2 {
 </style>
 </head>
 <body>
+	
 	<div class="main">
 		<div class="header">
-			<img src="logo.png" class="logo">
+			<img src="{{$image}}" class="logo">
 			<!-- <img src="{{asset('custom/img/logo.png')}}" class="logo"> -->
 			<span class="heding"><h1>SEVA NATUREAL FOUNDATION</h1></span>
 		</div>
-		<div class="second-section">
+		<div class="second-section" style="display: flex;
+    justify-content: space-between;
+    padding: 0px 0px;
+    border-bottom: 2px solid red;">
 			<p>CIN: U85100KA2022NPL159269</p>
 			<span><p>(Registered under section 8 of companies Act, 2013)</p></span>
 		</div>

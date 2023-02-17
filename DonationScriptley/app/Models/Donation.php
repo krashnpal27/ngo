@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Donation extends Model
 {
     use HasFactory;
-    protected $fillable = ['fname','lname','email','city','phone','amount','payment_by','cause','category'];
+    protected $fillable = ['fname','lname','receipt_no','email','city','phone','amount','payment_by','cause','category'];
 
     public function dcat()
     {
