@@ -42,6 +42,14 @@
                                             <input name="email" type="email" class="form-control" id="inputEmail4" placeholder="Email">
                                         </div>
                                         <div class="form-group col-md-6">
+                                            <label for="address_line1">Address Line1</label>
+                                            <input name="address_line1" type="text" class="form-control" id="address_line1" placeholder="address_line1">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="address_line2">Address Line2</label>
+                                            <input name="address_line2" type="text" class="form-control" id="address_line2" placeholder="address_line2">
+                                        </div>
+                                        <div class="form-group col-md-6">
                                             <label for="city">City</label>
                                             <input name="city" type="text" class="form-control" id="city" placeholder="City">
                                         </div>
@@ -60,7 +68,7 @@
                                         <div class="form-group col-md-6">
                                             <label for="category">Donation Category</label>
                                             <select id="category" name="category" class="form-control">
-                                                <option value="not">Select Donation Category</option>
+                                                <!-- <option value="not">Select Donation Category</option> -->
                                                 @if($category)
                                                     @foreach($category as $row)
                                                         <option value="{{$row->id}}">{{$row->title}}</option>
@@ -71,13 +79,17 @@
                                         <div class="form-group col-md-6">
                                             <label for="cause">Donation Cause</label>
                                             <select id="cause" name="cause" class="form-control">
-                                                <option selected>Select Donation Cause</option>
+                                                <!-- <option selected>Select Donation Cause</option> -->
                                                 @if($cause)
                                                     @foreach($cause as $row)
                                                         <option value="{{$row->id}}">{{$row->title}}</option>
                                                     @endforeach
                                                 @endif
                                             </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="pan">PAN NO:</label>
+                                            <input name="pan" type="text" class="form-control" id="pan" placeholder="pan">
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="amount">Amount</label>
@@ -105,7 +117,7 @@
                                         </div>
                                         <div class="form-group col-md-6 d-none" id="cheque_det">
                                             <label for="cheque_no">Cheque No.</label>
-                                            <input name="cheque_no" type="number" class="form-control" id="cheque_no" placeholder="Cheque No">
+                                            <input name="cheque_no" type="text" class="form-control" id="cheque_no" placeholder="Cheque No">
                                         </div>
                                         <!-- <div class="form-group col-md-6 d-none" id="online_div">
                                             <button class="btn btn-success">pay</button>

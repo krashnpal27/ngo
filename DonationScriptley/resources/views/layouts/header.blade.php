@@ -39,6 +39,13 @@
       color:#166435;
       font-size:25px;
     }
+    .fa-print{
+      color:#71F9E4;
+      font-size:25px;
+    }
+    .fa-download{
+      font-size:25px;
+    }
   </style>
   
 </head>

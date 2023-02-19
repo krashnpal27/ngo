@@ -43,6 +43,14 @@
                                             <input name="email" type="email" class="form-control" id="inputEmail4" placeholder="Email" value="{{$data->email}}">
                                         </div>
                                         <div class="form-group col-md-6">
+                                            <label for="address_line1">Address Line1</label>
+                                            <input name="address_line1" type="text" class="form-control" id="address_line1" placeholder="address_line1" value="{{$data->address_line1}}">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="address_line2">Address Line2</label>
+                                            <input name="address_line2" type="text" class="form-control" id="address_line2" placeholder="address_line2" value="{{$data->address_line2}}">
+                                        </div>
+                                        <div class="form-group col-md-6">
                                             <label for="city">City</label>
                                             <input name="city" type="text" class="form-control" id="city" placeholder="City" value="{{$data->city}}">
                                         </div>
@@ -77,6 +85,10 @@
                                             </select>
                                         </div>
                                         <div class="form-group col-md-6">
+                                            <label for="pan">PAN NO:</label>
+                                            <input name="pan" type="text" class="form-control" id="pan" placeholder="pan" value="{{$data->pan}}">
+                                        </div>
+                                        <div class="form-group col-md-6">
                                             <label for="amount">Amount</label>
                                             <input name="amount" type="number" class="form-control" id="amount" placeholder="Amount" value="{{$data->amount}}">
                                         </div>
@@ -92,7 +104,7 @@
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="cheque_no">Cheque No.</label>
-                                            <input name="cheque_no" type="number" class="form-control" id="cheque_no" placeholder="Cheque No">
+                                            <input name="cheque_no" type="text" class="form-control" id="cheque_no" placeholder="Cheque No" value="{{$data->cheque_no?$data->cheque_no:''}}">
                                         </div>
                                         
                                     </div>

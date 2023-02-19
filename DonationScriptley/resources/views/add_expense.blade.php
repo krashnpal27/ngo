@@ -31,7 +31,6 @@
                                         <div class="form-group col-md-6">
                                             <label for="category">Expenses Category</label>
                                             <select id="category" name="category" class="form-control">
-                                                <option value="not" selected>Select Expense Category</option>
                                                 @if($category)
                                                     @foreach($category as $row)
                                                         <option value="{{$row->id}}">{{$row->title}}</option>

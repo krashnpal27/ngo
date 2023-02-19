@@ -60,6 +60,8 @@
                       <td>
                             <a  class="delete_donation" data-url="{{route('delete_donation')}}" data-id="{{$row->id}}" data-toggle="tooltip" data-placement="top" title="Delete Donation"><i class="fa fa-trash" aria-hidden="true"></i></a>
                             <a id="edit_donation" href="{{URL('edit_donation/'.$row->id)}}" class="viewdonation" data_id="{{$row->id}}" data_value="edit" data_title="Edit Donation" data-toggle="tooltip" data-placement="top" title="Edit Donation"><i class="fa fa-edit " aria-hidden="true"></i></a>
+                            <a id="receipt_print" href="{{URL('pdf_view/'.$row->receipt_no)}}" class="viewreceipt" data_id="{{$row->id}}" data_value="edit" data_title="Edit Donation" data-toggle="tooltip" data-placement="top" title="Donation Receipt"><i class="fa fa-print" aria-hidden="true"></i></a>
+                            <a id="receipt_print" href="{{URL('pdf_download/'.$row->receipt_no)}}" class="viewreceipt" data_id="{{$row->id}}" data_value="edit" data_title="Edit Donation" data-toggle="tooltip" data-placement="top" title="Donation Receipt"><i class="fa fa-download" aria-hidden="true"></i></a>
                       </td>
                     </tr>
                     @endforeach

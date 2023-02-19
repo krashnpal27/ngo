@@ -18,8 +18,11 @@ class CreateDonationsTable extends Migration
             $table->string('fname');
             $table->string('lname');
             $table->string('email');
+            $table->string('address_line1');
+            $table->string('address_line2');
             $table->string('city');
             $table->string('phone');
+            $table->string('pan');
             $table->string('receipt_no');
             $table->integer('category');
             $table->integer('cause');

@@ -33,10 +33,10 @@
 				<div style="padding: 11px 0px;">
 					<div style="width: 65%;">
 						<label>Received A Sum of Rs:</label>
-						<input style=" border: none;border-bottom: 1px solid black;width: 50%;" type="text" name="Amount in RS."  value="{{$data->amount}}">/-</input>
+						<input style="text-align: center; border: none;border-bottom: 1px solid black;width: 50%;" type="text" name="Amount in RS."  value="{{$data->amount}}">/-</input>
 					</div>
 					<div style="width: 35%;float: right;margin-top: -21px;">
-						<input style=" border: none;border-bottom: 1px solid black;width: 87%;" type="text" name="Amount in Words">
+						<input style="text-align: center; border: none;border-bottom: 1px solid black;width: 87%;" type="text" name="Amount in Words">
 					</div>
 				</div>
 				<div style="padding: 15px 0px;">
@@ -52,28 +52,28 @@
 				</div>
 				<div>
 					<div>
-						<p style="text-align: right;">Payment Mode: {{$data->payment_by}}"</p>
+						<p style="text-align: right;">Payment Mode: {{$data->payment_by}}</p>
 					</div>
 				</div>
 				<div style="padding: 11px 0px;">
 					<div style="width: 54%;">
 						<label>Address:</label>
-						<input style=" border: none;border-bottom: 1px solid black;width: 70%;" type="text" name="Address"  value="{{$data->city}}">
-						<input style=" border: none;border-bottom: 1px solid black; width: 82%;padding: 10px;" type="text" name="Address">
-						<input style=" border: none;border-bottom: 1px solid black; width: 82%;padding: 10px;" type="text" name="Address">
+						<input style="text-align: center; border: none;border-bottom: 1px solid black;width: 70%;" type="text" name="Address"  value="{{$data->address_line1}},{{$data->address_line2}},{{$data->city}}">
+						<input style="text-align: center; border: none;border-bottom: 1px solid black; width: 82%;padding: 10px;" type="text" name="Address" >
+						<input style="text-align: center; border: none;border-bottom: 1px solid black; width: 82%;padding: 10px;" type="text" name="Address" >
 						<div style=" padding: 15px 0px;">
 							<label>Mob No:</label>
-							<input style=" border: none;border-bottom: 1px solid black;width: 71%;" type="text" name="Mob No"  value="{{$data->phone}}">
+							<input style="text-align: center; border: none;border-bottom: 1px solid black;width: 71%;" type="text" name="Mob No"  value="{{$data->phone}}">
 						</div>
 					</div>
 					<div style="width: 40%;float: right;margin-top: -154px;">
 						<div style="padding: 10px 0px;">
 							<label>Details:</label>
-							<input style=" border: none;border-bottom: 1px solid black;width: 80%;" type="text" name="Details">
+							<input style="text-align: center; border: none;border-bottom: 1px solid black;width: 80%;" type="text" name="Details"value="{{$data->cheque_no?$data->cheque_no:''}}">
 						</div>
 						<div style="padding: 10px 0px;">
 							<label>PAN:</label>
-							<input style=" border: none;border-bottom: 1px solid black;width: 86%;" type="text" name="PAN">
+							<input style="text-align: center; border: none;border-bottom: 1px solid black;width: 70%;" type="text" name="PAN" value="{{$data->pan}}">
 						</div>
 						<div style="padding: 10px 0px;">
 							<label>Email ID:</label>

@@ -19,7 +19,7 @@
               <div class="inner">
                 <h5>Donator</h5>
 
-                <p>0</p>
+                <p>{{$count}}</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
@@ -33,7 +33,7 @@
               <div class="inner">
                 <h5>Total Donation</h5>
 
-                <p>0</p>
+                <p>{{$total_donation}}</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -47,7 +47,7 @@
               <div class="inner">
                 <h5>Totla Expenses</h5>
 
-                <p>0</p>
+                <p>{{$ex_total}}</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>

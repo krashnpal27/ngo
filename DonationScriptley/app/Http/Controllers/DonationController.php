@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Donation;
+use App\Models\Expense;
 use App\Models\DonationCategory;
 use App\Models\Cause;
 use Illuminate\Http\Request;
@@ -44,6 +45,15 @@ class DonationController extends Controller
         }
         
                   
+
+    }
+
+    public function dashboard()
+    {
+        $donation= Donation::count();
+        $donationtotal= Donation::sum('amount');
+        $extotal= Expense::sum('amount');
+        return view('dashboard',['count'=>$donation,'total_donation'=>$donationtotal,'ex_total'=>$extotal]);              
 
     }
 

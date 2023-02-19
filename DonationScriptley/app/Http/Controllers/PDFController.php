@@ -113,6 +113,16 @@ class PDFController extends Controller
         $pdf = PDF::loadView('myPDF2',['image'=>$image,"data"=>$final_data[0]])->setPaper('a4', 'landscape');
         // $pdf = PDF::render();
         return $pdf->stream();
-        // return view('myPDF2',['image'=>$image,"data"=>$final_data]);
+        // return view('myPDF2',['image'=>$image,"data"=>$final_data[0]]);
+    }
+    public function download($id)
+    {
+        $final_data = DB::table('donations')
+        ->Where('receipt_no','=',$id)
+        ->get();
+        $imagepath = public_path("custom/img/logo.png");
+        $image = "data:image/png;base64,".base64_encode(file_get_contents($imagepath));
+        $pdf = PDF::loadView('myPDF2',['image'=>$image,"data"=>$final_data[0]])->setPaper('a4', 'landscape');
+        return $pdf->download($id.'.pdf');
     }
 }

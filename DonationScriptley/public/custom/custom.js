@@ -1,4 +1,261 @@
-
+$("#donation_form").validate({
+    rules: {
+        "fname": {
+             required: true,
+            //  minlength: 5,
+            //  digits: true
+         },
+        "lname": {
+             required: true,
+            //  minlength: 5,
+            //  digits: true
+         },
+        "email": {
+             required: true,
+            //  minlength: 5,
+            //  digits: true
+         },
+        "address_line1": {
+             required: true,
+            //  minlength: 5,
+            //  digits: true
+         },
+        "address_line2": {
+             required: true,
+            //  minlength: 5,
+            //  digits: true
+         },
+        "phone": {
+             required: true,
+            //  minlength: 5,
+            //  digits: true
+         },
+        "category": {
+             required: true,
+            //  minlength: 5,
+            //  digits: true
+         },
+        "cause": {
+             required: true,
+            //  minlength: 5,
+            //  digits: true
+         },
+        "pan": {
+             required: true,
+            //  minlength: 5,
+            //  digits: true
+         },
+        "amount": {
+             required: true,
+            //  minlength: 5,
+            //  digits: true
+         }
+      },
+      messages: {
+        "fname": {
+             required: "first name field is required",
+             //minlength: "this field must contain at least {0} characters",
+            //  digits: "this field can only contain numbers"
+         },
+         "lname": {
+            required: "last name field is required",
+           //  minlength: 5,
+           //  digits: true
+        },
+       "email": {
+            required: "email field is required",
+           //  minlength: 5,
+           //  digits: true
+        },
+       "address_line1": {
+            required: "address name field is required",
+           //  minlength: 5,
+           //  digits: true
+        },
+       "address_line2": {
+            required: "address name field is required",
+           //  minlength: 5,
+           //  digits: true
+        },
+       "phone": {
+            required: "phone field is required",
+           //  minlength: 5,
+           //  digits: true
+        },
+       "category": {
+            required: "Please Select category or Create category",
+           //  minlength: 5,
+           //  digits: true
+        },
+       "cause": {
+            required: "Please Select cause or Create Cause",
+           //  minlength: 5,
+           //  digits: true
+        },
+       "pan": {
+            required: "pan field is required",
+           //  minlength: 5,
+           //  digits: true
+        },
+       "amount": {
+            required: "amount field is required",
+           //  minlength: 5,
+           //  digits: true
+        }
+      }
+});
+$("#expense_form").validate({
+    rules: {
+        "category": {
+             required: true,
+            //  minlength: 5,
+            //  digits: true
+         },
+        "amount": {
+             required: true,
+            //  minlength: 5,
+            //  digits: true
+         },
+        "detail": {
+             required: true,
+            //  minlength: 5,
+            //  digits: true
+         },
+        "date": {
+             required: true,
+            //  minlength: 5,
+            //  digits: true
+         }
+      },
+      messages: {
+       "category": {
+            required: "Please Select category or Create category",
+           //  minlength: 5,
+           //  digits: true
+        },
+       "detail": {
+            required:"detail field is required",
+           //  minlength: 5,
+           //  digits: true
+        },
+       "amount": {
+            required: "amount field is required",
+           //  minlength: 5,
+           //  digits: true
+        },
+       "date": {
+            required: "date field is required",
+           //  minlength: 5,
+           //  digits: true
+        }
+      }
+});
+$("#donation_edit_form").validate({
+    rules: {
+        "fname": {
+             required: true,
+            //  minlength: 5,
+            //  digits: true
+         },
+        "lname": {
+             required: true,
+            //  minlength: 5,
+            //  digits: true
+         },
+        "email": {
+             required: true,
+            //  minlength: 5,
+            //  digits: true
+         },
+        "address_line1": {
+             required: true,
+            //  minlength: 5,
+            //  digits: true
+         },
+        "address_line2": {
+             required: true,
+            //  minlength: 5,
+            //  digits: true
+         },
+        "phone": {
+             required: true,
+            //  minlength: 5,
+            //  digits: true
+         },
+        "category": {
+             required: true,
+            //  minlength: 5,
+            //  digits: true
+         },
+        "cause": {
+             required: true,
+            //  minlength: 5,
+            //  digits: true
+         },
+        "pan": {
+             required: true,
+            //  minlength: 5,
+            //  digits: true
+         },
+        "amount": {
+             required: true,
+            //  minlength: 5,
+            //  digits: true
+         }
+      },
+      messages: {
+        "fname": {
+             required: "first name field is required",
+             //minlength: "this field must contain at least {0} characters",
+            //  digits: "this field can only contain numbers"
+         },
+         "lname": {
+            required: "last name field is required",
+           //  minlength: 5,
+           //  digits: true
+        },
+       "email": {
+            required: "email field is required",
+           //  minlength: 5,
+           //  digits: true
+        },
+       "address_line1": {
+            required: "address name field is required",
+           //  minlength: 5,
+           //  digits: true
+        },
+       "address_line2": {
+            required: "address name field is required",
+           //  minlength: 5,
+           //  digits: true
+        },
+       "phone": {
+            required: "phone field is required",
+           //  minlength: 5,
+           //  digits: true
+        },
+       "category": {
+            required: "Please Select category or Create category",
+           //  minlength: 5,
+           //  digits: true
+        },
+       "cause": {
+            required: "Please Select cause or Create Cause",
+           //  minlength: 5,
+           //  digits: true
+        },
+       "pan": {
+            required: "pan field is required",
+           //  minlength: 5,
+           //  digits: true
+        },
+       "amount": {
+            required: "amount field is required",
+           //  minlength: 5,
+           //  digits: true
+        }
+      }
+});
 $(document).ready( function () {
     // $('#table').DataTable();
     var url= $(location).attr("origin");
@@ -115,6 +372,7 @@ $(document).ready( function () {
     });
 
     $(document).on('click','#cash,#cheque',function(){
+        
         $('#payment_by').val($(this).attr('id'));
        var  id = $(this).attr('id');
        if(id == 'cheque'){
@@ -138,7 +396,9 @@ $(document).ready( function () {
     $("#donation_form").submit(function(e) {
 
         e.preventDefault(); // avoid to execute the actual submit of the form.
-        
+        if( !$("#donation_form").valid() ){
+            return false;
+        }
         var form = $(this);
         var actionUrl = form.attr('action');
         $.ajaxSetup({
@@ -474,7 +734,9 @@ $(document).ready( function () {
     $("#donation_edit_form").submit(function(e) {
 
         e.preventDefault(); // avoid to execute the actual submit of the form.
-        
+        if( !$("#donation_edit_form").valid() ){
+            return false;
+        }
         var form = $(this);
         var actionUrl = form.attr('action');
         

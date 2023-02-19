@@ -50,11 +50,10 @@ Route::group(['middleware' => ['guest']], function(){
 Route::group(['middleware' => ['auth']], function()
 {   
 
-    Route::get('/', function () {
-        return view('dashboard');
-    })->name('dashboard'); 
+    Route::get('/',[DonationController::class,'dashboard'])->name('dashboard'); 
     Route::get('/logout',[LoginController::class,'logout'])->name('logout');
     Route::get('/pdf_view/{id}',[PDFController::class, 'generate2'])->name('pdf_view');
+    Route::get('/pdf_download/{id}',[PDFController::class, 'download'])->name('pdf_download');
     Route::get('/profile',[LoginController::class,'profile'])->name('profile');
     Route::post('/update_profile',[LoginController::class,'update_profile'])->name('update_profile');
     Route::get('/donation',[DonationController::class,'index'])->name('donation');
