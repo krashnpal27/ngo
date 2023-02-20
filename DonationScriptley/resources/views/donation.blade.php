@@ -14,7 +14,7 @@
                     </ol>
                   </div>
                   <div class="ml-auto mt-2 ">
-                    <a class="btn btn-warning" style="background-color:#c45301" href="{{route('add_donation_cat')}}">Add Donation Category</a>
+                    <a class="btn text-white" style="background-color:#9a5f3e" href="{{route('add_donation_cat')}}">Add Donation Category</a>
                     <a class="btn btn-success" href="{{route('add_donation')}}">Add Donation</a>
                   </div>
                 </div>

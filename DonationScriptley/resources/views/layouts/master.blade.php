@@ -13,7 +13,7 @@
     <!-- top nav -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand pl-3" href="{{route('dashboard')}}">
-          <img src="{{asset('/custom/img/logo.png')}}" alt="" srcset="" width="70" height="70">
+          <img src="{{asset('/custom/img/logo.png')}}" alt="" srcset="" width="70" height="50">
         </a>
         <div class="justify-content-end navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">

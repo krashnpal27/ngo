@@ -22,7 +22,7 @@ use App\Http\Controllers\RazorpayPaymentController;
 |
 */
 // mail sending
-Route::get('send-mail', function () {
+/* Route::get('send-mail', function () {
    
     $details = [
         'title' => 'Mail from ItSolutionStuff.com',
@@ -32,7 +32,8 @@ Route::get('send-mail', function () {
     \Mail::to('k.p.shaktawat9@gmail.com')->send(new \App\Mail\SendMailphp($details));
    
     dd("Email is Sent.");
-});
+}); */
+Route::get('mail/{id}',[PDFController::class, 'mail']);
 // mail sending
 Route::get('/forgot',function(){
     return view('reset');

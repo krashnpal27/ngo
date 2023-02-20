@@ -5,15 +5,19 @@
         <!--breadcrumb  -->
         <div class="page-breadcrumb">
             <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('dashboard')}}" class="breadcrumb-link">Dashboard</a></li>
-                    
-                    <li class="breadcrumb-item active" aria-current="page">Manage Causes</li>
-                  </ol>
-                </nav>
-                <div class="mb-2">
-                  <a class="btn btn-primary" href="{{route('add_causes')}}">Add Cause</a>
+                <div class="row" style="background-color:#e9ecef">
+                    <div class="col-4">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{route('dashboard')}}" class="breadcrumb-link">Dashboard</a></li>
+                        
+                        <li class="breadcrumb-item active" aria-current="page">Manage Causes</li>
+                      </ol>
+                    </div>
+                    <div class="ml-auto mt-2">
+                      <a class="btn btn-success" href="{{route('add_causes')}}">Add Cause</a>
+                    </div>
                 </div>
+            </nav>
         </div>
         <!--breadcrumb  -->
         <!-- Small boxes (Stat box) -->

@@ -33,20 +33,21 @@
   <style>
     .fa-trash{
       color: #9a5f3e;
-      font-size:25px;
+      font-size:15px;
     }
     .fa-edit{
       color:#166435;
-      font-size:25px;
+      font-size:15px;
     }
     .fa-print{
       color:#71F9E4;
-      font-size:25px;
+      font-size:15px;
     }
     .fa-download{
-      font-size:25px;
+      font-size:15px;
     }
   </style>
   
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
+  
