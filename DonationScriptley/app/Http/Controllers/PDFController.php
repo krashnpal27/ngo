@@ -52,25 +52,12 @@ class PDFController extends Controller
         $final_data = DB::table('donations')
         ->Where('receipt_no','=',$id)
         ->get();
-        // $final_data = Donation::where('receipt_no',$id);
-        // dd($final_data);
         $imagepath = public_path("custom/img/logo.png");
         $image = "data:image/png;base64,".base64_encode(file_get_contents($imagepath));
-        // $data = [
-        //     'name' => 'Naturteal',
-        //     'date' => date('m/d/Y'),
-        //     'email'=>'k@gmail.com',
-        //     'amount'=>"108",
-        //     'r_no'=>"NF00108"
-
-        // ];
-        // $numberToWords = new NumberToWords();
         $word = NumberToWords::transformNumber('en', $final_data[0]->amount,'INR');
-        // $word = NumberToWords::transformCurrency('en', $final_data[0]->amount,'USD');
         $final_data[0]->amount_words= $word;
         $customPaper = array(0,0,720,1240);
         $pdf = PDF::loadView('myPDF2',['image'=>$image,"data"=>$final_data[0]])->setPaper($customPaper, 'landscape');
-        // $pdf = PDF::render();
         return $pdf->stream();
         // return view('myPDF2',['image'=>$image,"data"=>$final_data[0]]);
     }
@@ -81,7 +68,11 @@ class PDFController extends Controller
         ->get();
         $imagepath = public_path("custom/img/logo.png");
         $image = "data:image/png;base64,".base64_encode(file_get_contents($imagepath));
-        $pdf = PDF::loadView('myPDF2',['image'=>$image,"data"=>$final_data[0]])->setPaper('a4', 'landscape');
+        $word = NumberToWords::transformNumber('en', $final_data[0]->amount,'INR');
+        $final_data[0]->amount_words= $word;
+        $customPaper = array(0,0,720,1240);
+        $pdf = PDF::loadView('myPDF2',['image'=>$image,"data"=>$final_data[0]])->setPaper($customPaper, 'landscape');
+        // $pdf = PDF::loadView('myPDF2',['image'=>$image,"data"=>$final_data[0]])->setPaper('a4', 'landscape');
         return $pdf->download($id.'.pdf');
     }
     public function mail($id)
@@ -93,32 +84,23 @@ class PDFController extends Controller
         $image = "data:image/png;base64,".base64_encode(file_get_contents($imagepath));
         $pdf = PDF::loadView('myPDF2',['image'=>$image,"data"=>$final_data[0]])->setPaper('a4', 'landscape');
         
-            $path = public_path('/custom/pdf/');
-            $fileName =  $id. '.' . 'pdf' ;
-            $pdf->save($path . '/' . $fileName);
+        $path = public_path('/custom/pdf/');
+        $fileName =  $id. '.' . 'pdf' ;
+        $pdf->save($path . '/' . $fileName);
 
-            $file = public_path('/custom/pdf/'.$fileName);
-            
+        $file = public_path('/custom/pdf/'.$fileName);
+        
 
-            $data["email"] = "k.p.shaktawat9@gmail.com";
-            $data["title"] = "From Natureal Admin";
-            $data["body"] = "This is Demo";
-      
-            Mail::send('emails.myTestMail',["data"=>$data], function($message)use($data, $file) {
-                $message->to($data["email"])
-                ->subject($data["title"])
-                ->attach($file);
-                           
-            });
-
-
-        // 
-        // Mail::send('emails.myTestMail',  function($message)use( $file) {
-        //     $message->to($data["email"], $data["email"])
-        //             ->subject($data["title"]);
-        //         $message->attach($file);
-            
-        }
-        // 
+        $data["email"] = "k.p.shaktawat9@gmail.com";
+        $data["title"] = "From Natureal Admin";
+        $data["body"] = "This is Demo";
+    
+        Mail::send('emails.myTestMail',["data"=>$data], function($message)use($data, $file) {
+            $message->to($data["email"])
+            ->subject($data["title"])
+            ->attach($file);
+                        
+        });
+    }
      
 }

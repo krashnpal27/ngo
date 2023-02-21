@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cause;
 use Illuminate\Http\Request;
 use App\Repositories\UserRepository;
+use DB;
 
 class CauseController extends Controller
 {
@@ -23,7 +24,11 @@ class CauseController extends Controller
     public function index()
     {
         //
-        $data = $this->Cause->all();
+        // $data = $this->Cause->all();
+        $data = Cause::select('causes.id','causes.title','causes.created_at','causes.target_amount','causes.status',DB::raw('SUM(donations.amount) As donation'))
+        ->leftJoin('donations','donations.cause','=','causes.id')
+        ->groupBy('causes.id','causes.title','causes.created_at','causes.target_amount','causes.status')
+        ->get();
         return view('causes',['data'=>$data]);
     }
 

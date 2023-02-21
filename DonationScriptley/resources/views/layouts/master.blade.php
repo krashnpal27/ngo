@@ -8,7 +8,7 @@
 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="{{asset('custom/img/logo.png')}}" alt="AdminLTELogo" height="100" width="100">
+    <img class="animation__shake" src="{{asset('custom/img/logo.png')}}" alt="AdminLTELogo" height="80" width="100">
   </div>
     <!-- top nav -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
